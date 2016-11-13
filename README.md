@@ -6,15 +6,20 @@ This code is based on the wonderfull work of [george7378](http://www.instructabl
 Commands
 --------
 
-Receive
+Receive (This command must be done on the raspberry itself, not via SSH)
 ```
 python ReceiveRF.py
 ```
 
-Send
+Send COMMAND (see commands in code)
 ```
 python TransmitRF.py YOUR_COMMAND
 ```
+Send UP (Hardcoded key for work)
+```
+python up.py
+```
+
 
 Raspberry Pi 3 Wiring
 ---------------------
