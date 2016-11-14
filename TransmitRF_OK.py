@@ -139,7 +139,7 @@ def transmit_code(code):
     # END DOWN COMMAND
 
     # STOP COMMAND
-    if code is stop or code < 100 or code > 0:
+    if code is stop or (code < 100 and code > 0):
         print "stopping"
         for t in range(NUM_ATTEMPTS):
             print "entering for %s on %s" % (t, NUM_ATTEMPTS)
