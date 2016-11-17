@@ -23,6 +23,23 @@ cleaning_delay = 0.5
 NUM_ATTEMPTS = 4
 TRANSMIT_PIN = 23
 
+def encode(code):
+    for i in code:
+        if i == '1':
+            GPIO.output(TRANSMIT_PIN, 1)
+            time.sleep(short_delay)
+            GPIO.output(TRANSMIT_PIN, 0)
+            time.sleep(long_delay)
+            #print "  1 sent"
+        elif i == '0':
+            GPIO.output(TRANSMIT_PIN, 1)
+            time.sleep(long_delay)
+            GPIO.output(TRANSMIT_PIN, 0)
+            time.sleep(short_delay)
+            #print "  0 sent"
+        else:
+            continue
+
 def transmit_code(code):
     '''Transmit a chosen code string using the GPIO transmitter'''
     #print "entering code"
@@ -41,21 +58,7 @@ def transmit_code(code):
             GPIO.output(TRANSMIT_PIN, 1)
             time.sleep(extended_delay)
 
-            for i in up_1:
-                if i == '1':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(short_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(long_delay)
-                    #print "  1 sent"
-                elif i == '0':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(long_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(short_delay)
-                    #print "  0 sent"
-                else:
-                    continue
+            encode(up_1)
 
         for t in range(NUM_ATTEMPTS):
             #print "entering for %s on %s" % (t, NUM_ATTEMPTS)
@@ -63,21 +66,7 @@ def transmit_code(code):
             GPIO.output(TRANSMIT_PIN, 1)
             time.sleep(extended_delay)
 
-            for i in up_2:
-                if i == '1':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(short_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(long_delay)
-                    #print "  1 sent"
-                elif i == '0':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(long_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(short_delay)
-                    #print "  0 sent"
-                else:
-                    continue
+            encode(up_2)
 
     # END UP COMMAND
 
@@ -90,21 +79,7 @@ def transmit_code(code):
             GPIO.output(TRANSMIT_PIN, 1)
             time.sleep(extended_delay)
 
-            for i in down_1:
-                if i == '1':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(short_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(long_delay)
-                    #print "  1 sent"
-                elif i == '0':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(long_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(short_delay)
-                    #print "  0 sent"
-                else:
-                    continue
+            encode(down_1)
 
         for t in range(NUM_ATTEMPTS):
             #print "entering for %s on %s" % (t, NUM_ATTEMPTS)
@@ -112,21 +87,8 @@ def transmit_code(code):
             GPIO.output(TRANSMIT_PIN, 1)
             time.sleep(extended_delay)
             
-            for i in down_2:
-                if i == '1':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(short_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(long_delay)
-                    #print "  1 sent"
-                elif i == '0':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(long_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(short_delay)
-                    #print "  0 sent"
-                else:
-                    continue
+            encode(down_2)
+
     # END DOWN COMMAND
 
     # STOP COMMAND
@@ -139,21 +101,7 @@ def transmit_code(code):
             GPIO.output(TRANSMIT_PIN, 1)
             time.sleep(extended_delay)
             
-            for i in stop_1:
-                if i == '1':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(short_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(long_delay)
-                    #print "  1 sent"
-                elif i == '0':
-                    GPIO.output(TRANSMIT_PIN, 1)
-                    time.sleep(long_delay)
-                    GPIO.output(TRANSMIT_PIN, 0)
-                    time.sleep(short_delay)
-                    #print "  0 sent"
-                else:
-                    continue
+            encode(stop_1)
 
     # END STOP COMMAND
 
