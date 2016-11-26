@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 RECEIVED_SIGNAL = [[], []]  #[[time of reading], [signal reading]]
 MAX_DURATION = 5
-RECEIVE_PIN = 11
+RECEIVE_PIN = 24
 
 old_time = -1
 
