@@ -86,9 +86,9 @@ class Blyss :
                 # sous canal : a paramètrer ?
                 sousCanal = "1000"
  
-                if action == "ON" :
+                if action == "ON" or action == "true" or action == "100":
                         etatLumiere = "0000"
-                elif action == "OFF" :
+                elif action == "OFF" or action == "false" or action == "0" :
                         etatLumiere = "0001"
                 else :
                         print "l'action doit être ON ou OFF"
